@@ -6,6 +6,7 @@
         "test": "bun test"
     },
     "dependencies": {
+        "@elysiajs/cors": "^1.4.0",
         "elysia": "latest"
     },
     "devDependencies": {

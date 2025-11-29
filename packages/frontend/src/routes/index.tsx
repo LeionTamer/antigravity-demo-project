@@ -10,7 +10,8 @@ function Index() {
     const [data, setData] = useState<{ message: string } | null>(null)
 
     useEffect(() => {
-        fetch('/api/hello')
+        const apiUrl = import.meta.env.VITE_API_URL || '/api'
+        fetch(`${apiUrl}/hello`)
             .then((res) => res.json())
             .then(setData)
             .catch(console.error)

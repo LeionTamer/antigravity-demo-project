@@ -1,6 +1,8 @@
 import { Elysia } from 'elysia';
+import { cors } from '@elysiajs/cors';
 
 const app = new Elysia()
+  .use(cors())
   .get('/', () => 'Hello Elysia')
   .get('/api/hello', () => ({ message: 'Hello from Backend!' }))
   .listen(3000);
