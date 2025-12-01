@@ -4,26 +4,48 @@
 
 @layer base {
     :root {
-        --background: 0 0% 100%;
-        --foreground: 222.2 84% 4.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 222.2 84% 4.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 222.2 84% 4.9%;
-        --primary: 222.2 47.4% 11.2%;
-        --primary-foreground: 210 40% 98%;
-        --secondary: 210 40% 96.1%;
-        --secondary-foreground: 222.2 47.4% 11.2%;
-        --muted: 210 40% 96.1%;
-        --muted-foreground: 215.4 16.3% 46.9%;
-        --accent: 210 40% 96.1%;
-        --accent-foreground: 222.2 47.4% 11.2%;
+        /* Light Theme: Aged Parchment */
+        /* Background: #F5E6C8 -> 40 64% 87% */
+        --background: 40 64% 87%;
+        /* Text: #2F1B15 -> 14 38% 13% */
+        --foreground: 14 38% 13%;
+
+        /* Card: Same as background */
+        --card: 40 64% 87%;
+        --card-foreground: 14 38% 13%;
+
+        /* Popover: Same as background */
+        --popover: 40 64% 87%;
+        --popover-foreground: 14 38% 13%;
+
+        /* Primary: #A62C2B -> 0 59% 41% */
+        --primary: 0 59% 41%;
+        --primary-foreground: 40 64% 87%;
+
+        /* Secondary: Using Accent #C69C6D -> 32 43% 60% */
+        --secondary: 32 43% 60%;
+        --secondary-foreground: 14 38% 13%;
+
+        /* Muted: Desaturated background */
+        --muted: 40 30% 80%;
+        --muted-foreground: 14 38% 40%;
+
+        /* Accent: #C69C6D -> 32 43% 60% */
+        --accent: 32 43% 60%;
+        --accent-foreground: 14 38% 13%;
+
+        /* Destructive: Keep default red but slightly adjusted if needed */
         --destructive: 0 84.2% 60.2%;
         --destructive-foreground: 210 40% 98%;
-        --border: 214.3 31.8% 91.4%;
-        --input: 214.3 31.8% 91.4%;
-        --ring: 222.2 84% 4.9%;
+
+        /* Border: Accent color */
+        --border: 32 43% 60%;
+        --input: 32 43% 60%;
+        --ring: 0 59% 41%;
+
         --radius: 0.5rem;
+
+        /* Charts: Keep defaults or adjust later */
         --chart-1: 12 76% 61%;
         --chart-2: 173 58% 39%;
         --chart-3: 197 37% 24%;
@@ -32,25 +54,45 @@
     }
 
     .dark {
-        --background: 222.2 84% 4.9%;
-        --foreground: 210 40% 98%;
-        --card: 222.2 84% 4.9%;
-        --card-foreground: 210 40% 98%;
-        --popover: 222.2 84% 4.9%;
-        --popover-foreground: 210 40% 98%;
-        --primary: 210 40% 98%;
-        --primary-foreground: 222.2 47.4% 11.2%;
-        --secondary: 217.2 32.6% 17.5%;
-        --secondary-foreground: 210 40% 98%;
-        --muted: 217.2 32.6% 17.5%;
-        --muted-foreground: 215 20.2% 65.1%;
-        --accent: 217.2 32.6% 17.5%;
-        --accent-foreground: 210 40% 98%;
+        /* Dark Theme: Dim Lantern Light */
+        /* Background: #E1C699 -> 38 56% 74% */
+        --background: 38 56% 74%;
+        /* Text: #261410 -> 11 41% 11% */
+        --foreground: 11 41% 11%;
+
+        /* Card: Same as background */
+        --card: 38 56% 74%;
+        --card-foreground: 11 41% 11%;
+
+        /* Popover: Same as background */
+        --popover: 38 56% 74%;
+        --popover-foreground: 11 41% 11%;
+
+        /* Primary: #8E0000 -> 0 100% 28% */
+        --primary: 0 100% 28%;
+        --primary-foreground: 38 56% 74%;
+
+        /* Secondary: Using Accent #5D4037 -> 14 26% 29% */
+        --secondary: 14 26% 29%;
+        --secondary-foreground: 38 56% 74%;
+
+        /* Muted: Desaturated background */
+        --muted: 38 30% 65%;
+        --muted-foreground: 11 41% 30%;
+
+        /* Accent: #5D4037 -> 14 26% 29% */
+        --accent: 14 26% 29%;
+        --accent-foreground: 38 56% 74%;
+
+        /* Destructive */
         --destructive: 0 62.8% 30.6%;
         --destructive-foreground: 210 40% 98%;
-        --border: 217.2 32.6% 17.5%;
-        --input: 217.2 32.6% 17.5%;
-        --ring: 212.7 26.8% 83.9%;
+
+        /* Border: Accent color */
+        --border: 14 26% 29%;
+        --input: 14 26% 29%;
+        --ring: 0 100% 28%;
+
         --chart-1: 220 70% 50%;
         --chart-2: 160 60% 45%;
         --chart-3: 30 80% 55%;
