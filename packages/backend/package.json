@@ -8,10 +8,13 @@
     "dependencies": {
         "@elysiajs/cors": "^1.4.0",
         "elysia": "latest",
-        "postgres": "^3.4.7"
+        "postgres": "^3.4.7",
+        "drizzle-orm": "^0.33.0",
+        "shared": "workspace:*"
     },
     "devDependencies": {
         "@types/node": "^24.10.1",
-        "bun-types": "latest"
+        "bun-types": "latest",
+        "drizzle-kit": "^0.24.0"
     }
 }
