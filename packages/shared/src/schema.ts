@@ -15,11 +15,14 @@ export type InsertScholar = typeof scholars.$inferInsert;
 export const user = pgTable("user", {
     id: text("id").primaryKey(),
     name: text("name").notNull(),
+    firstName: text("firstName").notNull(),
+    lastName: text("lastName").notNull(),
     email: text("email").notNull().unique(),
     emailVerified: boolean("emailVerified").notNull(),
     image: text("image"),
     createdAt: timestamp("createdAt").notNull(),
-    updatedAt: timestamp("updatedAt").notNull()
+    updatedAt: timestamp("updatedAt").notNull(),
+    role: text("role").notNull().default("USER"),
 });
 
 export const session = pgTable("session", {
