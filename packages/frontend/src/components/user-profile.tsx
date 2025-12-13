@@ -1,4 +1,7 @@
 import { authClient } from '../lib/auth-client';
+import { Card, CardContent } from '@/components/ui/card';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 
 export function UserProfile() {
     const { data: session } = authClient.useSession();
@@ -8,22 +11,24 @@ export function UserProfile() {
     }
 
     return (
-        <div className="p-4 border rounded shadow-sm">
-            <div className="flex items-center gap-4">
-                {session.user.image && (
-                    <img src={session.user.image} alt={session.user.name} className="w-10 h-10 rounded-full" />
-                )}
-                <div>
-                    <p className="font-semibold">{session.user.name}</p>
-                    <p className="text-sm text-gray-500">{session.user.email}</p>
+        <Card className="border shadow-sm">
+            <CardContent className="p-4 flex items-center gap-4">
+                <Avatar>
+                    <AvatarImage src={session.user.image || undefined} alt={session.user.name} />
+                    <AvatarFallback>{session.user.name.charAt(0).toUpperCase()}</AvatarFallback>
+                </Avatar>
+                <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium leading-none truncate">{session.user.name}</p>
+                    <p className="text-xs text-muted-foreground truncate">{session.user.email}</p>
                 </div>
-                <button
+                <Button
+                    variant="destructive"
+                    size="sm"
                     onClick={() => authClient.signOut()}
-                    className="ml-auto bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
                 >
                     Sign Out
-                </button>
-            </div>
-        </div>
+                </Button>
+            </CardContent>
+        </Card>
     );
 }

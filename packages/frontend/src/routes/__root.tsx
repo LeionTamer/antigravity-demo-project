@@ -1,22 +1,22 @@
-import { Outlet, createRootRoute } from '@tanstack/react-router'
+import { Outlet, createRootRoute, Link } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import { Footer } from '../components/Footer'
 import { ThemeProvider } from '../components/theme-provider'
 import { ModeToggle } from '../components/mode-toggle'
+import { Button } from '@/components/ui/button'
 
 export const Route = createRootRoute({
     component: () => (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
             <div className="min-h-screen flex flex-col">
-                <div style={{ padding: '10px', display: 'flex', gap: '10px', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <div style={{ display: 'flex', gap: '10px' }}>
-                        <a href="/" style={{ fontWeight: 'bold' }}>
-                            Home
-                        </a>
+                <header className="flex items-center justify-between p-4 border-b">
+                    <div className="flex gap-4">
+                        <Button variant="link" asChild className="font-bold text-lg px-0">
+                            <Link to="/">Home</Link>
+                        </Button>
                     </div>
                     <ModeToggle />
-                </div>
-                <hr />
+                </header>
                 <div className="flex-1">
                     <Outlet />
                 </div>
