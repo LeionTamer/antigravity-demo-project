@@ -5,6 +5,7 @@ import postgres from 'postgres';
 const sql = postgres(process.env.DATABASE_URL!);
 
 import { auth } from './lib/auth';
+import { scholarsRouter } from './routes/scholars';
 
 const app = new Elysia()
   .use(cors())
@@ -20,6 +21,7 @@ const app = new Elysia()
       return { message: 'Database connection failed', error: String(error) };
     }
   })
+  .use(scholarsRouter)
   .listen(3000);
 
 console.log(
