@@ -3,13 +3,15 @@
     "version": "1.0.0",
     "scripts": {
         "dev": "bun run --watch src/index.ts",
-        "test": "bun test"
+        "test": "bun test",
+        "db:push": "drizzle-kit push"
     },
     "dependencies": {
         "@elysiajs/cors": "^1.4.0",
+        "better-auth": "^1.4.6",
+        "drizzle-orm": "^0.33.0",
         "elysia": "latest",
         "postgres": "^3.4.7",
-        "drizzle-orm": "^0.33.0",
         "shared": "workspace:*"
     },
     "devDependencies": {
