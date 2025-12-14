@@ -5,7 +5,7 @@ export const Route = createFileRoute('/admin')({
     beforeLoad: async () => {
         const session = await authClient.getSession()
 
-        if (!session.data?.user || session.data.user.role !== 'ADMIN') {
+        if (!session.data?.user || (session.data.user as any).role !== 'ADMIN') {
             throw redirect({
                 to: '/',
             })
