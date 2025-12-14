@@ -2,7 +2,7 @@
     "name": "backend",
     "version": "1.0.0",
     "scripts": {
-        "dev": "bun run --watch src/index.ts",
+        "dev": "bun run --env-file=.env --watch src/index.ts",
         "test": "bun test",
         "db:push": "drizzle-kit push"
     },

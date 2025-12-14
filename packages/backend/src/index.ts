@@ -1,8 +1,6 @@
 import { Elysia } from 'elysia';
 import { cors } from '@elysiajs/cors';
-import postgres from 'postgres';
-
-const sql = postgres(process.env.DATABASE_URL!);
+import { queryClient as sql } from './db';
 
 import { auth } from './lib/auth';
 import { scholarsRouter } from './routes/scholars';
@@ -13,6 +11,7 @@ const app = new Elysia()
 
   .get('/', () => 'Hello Elysia')
   .get('/api/hello', () => ({ message: 'Hello from Backend!' }))
+  .get('/api/debug-config', () => ({ dbUrl: process.env.DATABASE_URL }))
   .get('/api/db-check', async () => {
     try {
       const result = await sql`SELECT NOW()`;
@@ -22,7 +21,7 @@ const app = new Elysia()
     }
   })
   .use(scholarsRouter)
-  .listen(3000);
+  .listen(process.env.PORT || 3000);
 
 console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
