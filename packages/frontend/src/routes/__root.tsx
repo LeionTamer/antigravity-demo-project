@@ -24,6 +24,9 @@ function RootComponent() {
                         <Button variant="link" asChild className="font-bold text-lg px-0">
                             <Link to="/">Home</Link>
                         </Button>
+                        <Button variant="link" asChild className="font-bold text-lg px-0">
+                            <Link to="/latex-viewer">LaTeX Viewer</Link>
+                        </Button>
                     </div>
                     <div className="flex items-center gap-4">
                         {session ? (
