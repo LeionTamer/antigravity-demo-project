@@ -3,7 +3,7 @@ import { cors } from '@elysiajs/cors';
 import { queryClient as sql } from './db';
 
 import { auth } from './lib/auth';
-import { scholarsRouter } from './routes/scholars';
+
 
 const app = new Elysia()
   .use(cors())
@@ -20,7 +20,7 @@ const app = new Elysia()
       return { message: 'Database connection failed', error: String(error) };
     }
   })
-  .use(scholarsRouter)
+
   .listen(process.env.PORT || 3000);
 
 console.log(

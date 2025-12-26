@@ -14,7 +14,6 @@ import { Route as LatexViewerRouteImport } from './routes/latex-viewer'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
-import { Route as AdminScholarsScholarIdRouteImport } from './routes/admin/scholars/$scholarId'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
@@ -41,11 +40,6 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
-const AdminScholarsScholarIdRoute = AdminScholarsScholarIdRouteImport.update({
-  id: '/scholars/$scholarId',
-  path: '/scholars/$scholarId',
-  getParentRoute: () => AdminRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -53,14 +47,12 @@ export interface FileRoutesByFullPath {
   '/latex-viewer': typeof LatexViewerRoute
   '/login': typeof LoginRoute
   '/admin/': typeof AdminIndexRoute
-  '/admin/scholars/$scholarId': typeof AdminScholarsScholarIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/latex-viewer': typeof LatexViewerRoute
   '/login': typeof LoginRoute
   '/admin': typeof AdminIndexRoute
-  '/admin/scholars/$scholarId': typeof AdminScholarsScholarIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -69,27 +61,13 @@ export interface FileRoutesById {
   '/latex-viewer': typeof LatexViewerRoute
   '/login': typeof LoginRoute
   '/admin/': typeof AdminIndexRoute
-  '/admin/scholars/$scholarId': typeof AdminScholarsScholarIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/admin'
-    | '/latex-viewer'
-    | '/login'
-    | '/admin/'
-    | '/admin/scholars/$scholarId'
+  fullPaths: '/' | '/admin' | '/latex-viewer' | '/login' | '/admin/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/latex-viewer' | '/login' | '/admin' | '/admin/scholars/$scholarId'
-  id:
-    | '__root__'
-    | '/'
-    | '/admin'
-    | '/latex-viewer'
-    | '/login'
-    | '/admin/'
-    | '/admin/scholars/$scholarId'
+  to: '/' | '/latex-viewer' | '/login' | '/admin'
+  id: '__root__' | '/' | '/admin' | '/latex-viewer' | '/login' | '/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -136,24 +114,15 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/admin/scholars/$scholarId': {
-      id: '/admin/scholars/$scholarId'
-      path: '/scholars/$scholarId'
-      fullPath: '/admin/scholars/$scholarId'
-      preLoaderRoute: typeof AdminScholarsScholarIdRouteImport
-      parentRoute: typeof AdminRoute
-    }
   }
 }
 
 interface AdminRouteChildren {
   AdminIndexRoute: typeof AdminIndexRoute
-  AdminScholarsScholarIdRoute: typeof AdminScholarsScholarIdRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
   AdminIndexRoute: AdminIndexRoute,
-  AdminScholarsScholarIdRoute: AdminScholarsScholarIdRoute,
 }
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
