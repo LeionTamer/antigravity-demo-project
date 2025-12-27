@@ -10,6 +10,9 @@ function AdminDashboard() {
         <div className="space-y-4">
             <h2 className="text-xl font-semibold">Admin Dashboard</h2>
             <p>Welcome to the admin area.</p>
+            <div className="mt-4">
+                <a href="/admin/personas" className="text-blue-600 hover:underline">Manage Personas</a>
+            </div>
         </div>
     )
 }

@@ -14,6 +14,7 @@ import { Route as LatexViewerRouteImport } from './routes/latex-viewer'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as AdminPersonasRouteImport } from './routes/admin/personas'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
@@ -40,18 +41,25 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminPersonasRoute = AdminPersonasRouteImport.update({
+  id: '/personas',
+  path: '/personas',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
   '/latex-viewer': typeof LatexViewerRoute
   '/login': typeof LoginRoute
+  '/admin/personas': typeof AdminPersonasRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/latex-viewer': typeof LatexViewerRoute
   '/login': typeof LoginRoute
+  '/admin/personas': typeof AdminPersonasRoute
   '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
@@ -60,14 +68,28 @@ export interface FileRoutesById {
   '/admin': typeof AdminRouteWithChildren
   '/latex-viewer': typeof LatexViewerRoute
   '/login': typeof LoginRoute
+  '/admin/personas': typeof AdminPersonasRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/latex-viewer' | '/login' | '/admin/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/latex-viewer'
+    | '/login'
+    | '/admin/personas'
+    | '/admin/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/latex-viewer' | '/login' | '/admin'
-  id: '__root__' | '/' | '/admin' | '/latex-viewer' | '/login' | '/admin/'
+  to: '/' | '/latex-viewer' | '/login' | '/admin/personas' | '/admin'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/latex-viewer'
+    | '/login'
+    | '/admin/personas'
+    | '/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -114,14 +136,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/personas': {
+      id: '/admin/personas'
+      path: '/personas'
+      fullPath: '/admin/personas'
+      preLoaderRoute: typeof AdminPersonasRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
 interface AdminRouteChildren {
+  AdminPersonasRoute: typeof AdminPersonasRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminPersonasRoute: AdminPersonasRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 

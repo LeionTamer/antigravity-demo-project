@@ -50,3 +50,12 @@ export const verification = pgTable("verification", {
     createdAt: timestamp("createdAt"),
     updatedAt: timestamp("updatedAt")
 });
+
+export const persona = pgTable("persona", {
+    id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+    name: text("name").notNull(),
+    createdAt: timestamp("createdAt").notNull().defaultNow(),
+    updatedAt: timestamp("updatedAt").notNull().defaultNow(),
+    writingStyle: text("writingStyle").notNull(),
+    expertise: text("expertise").notNull()
+});
