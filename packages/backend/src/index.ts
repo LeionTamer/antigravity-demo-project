@@ -4,12 +4,14 @@ import { queryClient as sql } from './db';
 
 import { auth } from './lib/auth';
 import { personasRoute } from './routes/personas';
+import { llmRoute } from './routes/llm';
 
 
 const app = new Elysia()
   .use(cors())
   .all("/api/auth/*", (ctx) => auth.handler(ctx.request))
   .use(personasRoute)
+  .use(llmRoute)
 
   .get('/', () => 'Hello Elysia')
   .get('/api/hello', () => ({ message: 'Hello from Backend!' }))

@@ -9,6 +9,7 @@
     "dependencies": {
         "@elysiajs/cors": "^1.4.0",
         "@tanstack/ai": "^0.2.0",
+        "@tanstack/ai-gemini": "^0.2.0",
         "better-auth": "^1.4.6",
         "drizzle-orm": "^0.33.0",
         "elysia": "latest",
