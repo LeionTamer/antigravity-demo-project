@@ -59,3 +59,12 @@ export const persona = pgTable("persona", {
     writingStyle: text("writingStyle").notNull(),
     expertise: text("expertise").notNull()
 });
+
+export const instructions = pgTable("instructions", {
+    id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+    name: text("name").notNull(),
+    content: text("content").notNull(),
+    createdAt: timestamp("createdAt").notNull().defaultNow(),
+    updatedAt: timestamp("updatedAt").notNull().defaultNow()
+});
+
